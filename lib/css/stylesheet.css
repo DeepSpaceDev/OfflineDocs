@@ -1,0 +1,241 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url('../ttf/Roboto-Regular.ttf');
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url('../ttf/Roboto-Bold.ttf');
+	font-weight: bold;
+}
+@font-face {
+	font-family: 'Source Code Pro';
+	src: url('../ttf/SourceCodePro-Regular.ttf');
+}
+
+html, body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+body{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto', Arial, sans-serif;
+}
+
+#container {
+	display: flex;
+	flex: 1;
+}
+
+#searchbox{
+	padding: 12px;
+	display: flex;
+	height: 30px;
+	border-bottom: 1px solid #CCC;
+	align-items: center;
+	background-color: #F0F0F0;
+	box-shadow: 0px 0px 7px grey;
+}
+#search{
+	border: 1px solid #DDD;
+	border-radius: 3px;
+	height: 25px;
+	width: 340px;
+	font-size: 15px;
+	background: url(../icons/search.svg) no-repeat left center;
+	background-position: 5px;
+	background-color: #fff;
+	padding-left: 30px;
+}
+#title a{
+	color: #666;
+	font-weight: bold;
+	font-size: 16px;
+	font-family: 'Open Sans', Arial, sans-serif;
+	margin-left: 30px;
+}
+
+#navigation {
+	width: 400px;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	background-color: #F9F9F9;
+	border-right: 1px solid #CCC;
+	box-shadow: 0px 5px 7px grey;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+#innernav{
+	flex-direction: column;
+	min-height: 100%;
+	display: none; /*flex via js after load*/
+}
+#navigation .topobject{
+	cursor: pointer;
+	min-height: 40px;
+}
+#navigation .topinfo{
+	height: 40px;
+	display: flex;
+	align-items: center;
+	padding-left: 8px;
+}
+#navigation .topinfo:hover, .data:hover, .childtitleholder:hover{
+	background-color: #F3F3F3;
+}
+#navigation .topobject .label{
+	margin-left: 10px;
+	color: #444;
+	font-size: 15px;
+}
+#navigation .topobject .version{
+	margin-right: 10px;
+	color: #BBB;
+	font-size: 12px;
+}
+#navigation .topobject .lang_icon{
+	margin-left: 5px;
+}
+#navigation .childobject{
+	display: none;
+}
+#navigation .separator{
+	border-bottom: 1px solid #DDD;
+}
+#navigation #copyright{
+	font-size: 12px;
+	color: #CCC;
+	align-self: center;
+	margin: 8px;
+}
+
+#content {
+	overflow-x: hidden;
+	flex: 1;
+}
+
+#default {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+#default .text{
+	background-color: #e7f8e1;
+	padding-left: 16px;
+	padding-right: 16px;
+	border: 1px solid #89da70;
+	border-radius: 5px;
+	line-height: 1.9;
+	color: #333;
+}
+
+.data {
+	padding: 8px;
+	margin-left: 16px;
+	padding-left: 56px;
+}
+.childholder .data, .childobject .data{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+.childholder {
+	padding-left: 16px;
+}
+.childtitleholder {
+	padding: 8px;
+	padding-left: 24px;
+	display: flex; 
+	flex-direction: row; 
+	align-items: center;'
+}
+.childtitle{
+	padding-left: 8px;
+}
+.childchilds{
+	display: none;
+}
+
+
+.filler{
+	flex: 1;
+}
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+ 
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+a{
+	text-decoration: none;
+}
+
+#snackbar{
+	position: fixed;
+	bottom: -100px;
+	left: 0;
+	min-width: 350px;
+	margin: 16px;
+	margin-bottom: 32px;
+	height: 35px;
+	border-radius: 3px;
+    background-color: #333333;
+    color: #fff;
+    border: none;
+}
+#snackbarcontent{
+	margin-left: 16px;
+	margin-right: 16px;
+	display: flex;
+	align-items: center;
+	height: 35px;
+	font-weight: bold;
+}
+
+#loadercontainer{
+	width: 100%;
+	height: 100%;
+	display: flex;  
+	justify-content: center;
+	align-items: center;
+}
+#loader {
+	color: #000;
+
+	font-family: Consolas, Menlo, Monaco, monospace;
+	font-weight: bold;
+	font-size: 60px;
+
+	opacity: 0.8;
+}
+#loader span {
+	display: inline-block;
+	animation: pulse 0.5s alternate infinite ease-in-out;
+}
+#loader span:nth-child(odd) {
+	animation-delay: 0.5s;
+}
+
+@keyframes pulse {
+	to {
+		transform: scale(0.8);
+		opacity: 0.5;
+	}
+}
